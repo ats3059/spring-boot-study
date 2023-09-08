@@ -17,12 +17,17 @@ public class MemberRepositoryTest {
     @Transactional
     @Test
     void memberTest(){
-        Member member = new Member("idA", "memberA");
+        Member member = new Member("idA" , "memberA");
         memberRepository.initTable();
         memberRepository.save(member);
         Member findMember = memberRepository.find(member.getMemberId());
         assertThat(findMember.getMemberId()).isEqualTo(member.getMemberId());
         assertThat(findMember.getName()).isEqualTo(member.getName());
+
+
+
+
     }
+
 
 }

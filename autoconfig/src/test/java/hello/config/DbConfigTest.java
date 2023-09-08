@@ -1,5 +1,6 @@
 package hello.config;
 
+
 import lombok.extern.slf4j.Slf4j;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -27,17 +28,18 @@ class DbConfigTest {
     JdbcTemplate jdbcTemplate;
 
     @Test
-    void checkBean() {
+    void checkBean(){
         log.info("dataSource = {}" , dataSource);
-        log.info("TransactionManager = {}" , transactionManager);
-        log.info("JdbcTemplate = {}" , jdbcTemplate);
+        log.info("transactionManager = {}" , transactionManager);
+        log.info("jdbcTemplate = {}" , jdbcTemplate);
 
         assertThat(dataSource).isNotNull();
         assertThat(transactionManager).isNotNull();
         assertThat(jdbcTemplate).isNotNull();
 
-
     }
+
+
 
 
 }

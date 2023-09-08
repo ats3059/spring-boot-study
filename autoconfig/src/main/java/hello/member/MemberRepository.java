@@ -19,18 +19,21 @@ public class MemberRepository {
         template.execute("create table member(member_id varchar primary key , name varchar)");
     }
 
-    public void save(Member member) {
-        template.update("insert into member(member_id, name) values(?,?)"
+    public void save(Member member){
+        template.update("insert into member(member_id , name) values(?,?)"
                 , member.getMemberId()
                 , member.getName());
     }
 
     public Member find(String memberId) {
-        return template.queryForObject("select member_id , name from member where member_id = ?", BeanPropertyRowMapper.newInstance(Member.class), memberId);
+        return template.queryForObject("select member_id , name from member where member_id = ?",
+                BeanPropertyRowMapper.newInstance(Member.class),
+                memberId);
     }
 
-    public List<Member> findAll() {
+    public List<Member> findAll(){
         return template.query("select member_id , name from member",
                 BeanPropertyRowMapper.newInstance(Member.class));
     }
+
 }
