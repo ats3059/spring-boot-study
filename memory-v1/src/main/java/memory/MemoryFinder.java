@@ -10,13 +10,15 @@ public class MemoryFinder {
         long max = Runtime.getRuntime().maxMemory();
         long total = Runtime.getRuntime().totalMemory();
         long free = Runtime.getRuntime().freeMemory();
-        long used = total - free;
 
+        long used = total - free;
         return new Memory(used, max);
     }
 
     @PostConstruct
-    public void init(){
+    public void init() {
         log.info("init memoryFinder");
     }
+
+
 }
