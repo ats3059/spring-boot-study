@@ -1,6 +1,3 @@
-server:
-  port: 8090
-
 management:
   info:
     java:
@@ -9,8 +6,8 @@ management:
       enabled: true
     env:
       enabled: true
-  server:
-    port: 8080
+#  server:
+#    port: 8090
   endpoint:
     shutdown:
       enabled: true
@@ -26,4 +23,5 @@ info:
   app:
     name: hello-actuator
     company: yh
-
+server:
+  port: 8090
