@@ -1,4 +1,4 @@
-package hello.controller.controller;
+package hello.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +28,7 @@ public class TrafficController {
     private List<String> list = new ArrayList<>();
 
     @GetMapping("/jvm")
-    public String jvm(){
+    public String jvm() {
         log.info("jvm");
         for (int i = 0; i < 1000000L; i++) {
             list.add("hello jvm" + i);
@@ -40,14 +40,18 @@ public class TrafficController {
     DataSource dataSource;
 
     @GetMapping("/jdbc")
-    public String jdbc() throws Exception{
+    public String jdbc() throws Exception {
         log.info("jdbc");
         Connection connection = dataSource.getConnection();
-        log.info("connection info = {}" , connection);
+        log.info("connection info = {}", connection);
         // 커넥션 고갈을 위한 테스트기 떄문에 커넥션을 닫지 않는다.
 //        connection.close();
         return "ok";
     }
 
-
+    @GetMapping("/error-log")
+    public String errorLog(){
+        log.error("error log");
+        return "error";
+    }
 }
